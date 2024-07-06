@@ -1,0 +1,9 @@
+{
+    "name": "ArtifactOfCommunism",
+    "version_number": "1.0.0",
+    "website_url": "",
+    "description": "Adds Artifact of Communism",
+    "dependencies": [
+		"ReturnOfModding-ReturnOfModding-1.0.33"
+	]
+}
