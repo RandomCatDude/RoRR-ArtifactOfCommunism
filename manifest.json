@@ -1,9 +1,9 @@
 {
     "name": "ArtifactOfCommunism",
-    "version_number": "1.0.0",
-    "website_url": "",
+    "version_number": "1.0.1",
+    "website_url": "https://github.com/RandomCatDude/RoRR-ArtifactOfCommunism",
     "description": "Adds Artifact of Communism",
     "dependencies": [
-		"ReturnOfModding-ReturnOfModding-1.0.33"
+		"ReturnOfModding-ReturnOfModding-1.0.40"
 	]
 }

@@ -1,3 +1,9 @@
+------------------------------------------------------------------------------------------------------------------------
+-- HERE BE DRAGONS!!!!
+-- this code is ancient and crusty, from a time before the toolkit and its conveniences.
+-- i would heavily advise against using it for anything other than reflecting on how far RoRR modding has come.
+------------------------------------------------------------------------------------------------------------------------
+
 local item_listing = {}
 local item_identifier_to_id = {}
 
@@ -210,8 +216,11 @@ end)
 
 local sprite = nil
 local hooks = {}
-hooks["gml_Object_oStartMenu_Step_2"] = function()
-    hooks["gml_Object_oStartMenu_Step_2"] = nil
+
+local init = false
+gm.post_script_hook(gm.constants.__input_system_tick, function(self, other, result, args)
+	if init then return end
+    init = true
 
     uwu_id = gm.artifact_find("kitty-communism")
 	if not uwu_id then
@@ -242,7 +251,7 @@ hooks["gml_Object_oStartMenu_Step_2"] = function()
 
 	generate_item_mapping()
 	load_blacklist()
-end
+end)
 
 function generate_item_mapping()
 	local langmap = gm.variable_global_get("_language_map")
@@ -269,15 +278,9 @@ function generate_item_mapping()
 end
 
 function addsprite()
-	local path = _ENV._PLUGIN.plugins_mod_folder_path .. "/graphics/ArtifactCommunism.png"
+	local path = _ENV._PLUGIN.plugins_mod_folder_path .. "/ArtifactCommunism.png"
 	return gm.sprite_add(path, 3, false, false, 16, 16)
 end
-
-gm.pre_code_execute(function(self, other, code, result, flags)
-    if hooks[code.name] then
-        hooks[code.name](self)
-    end
-end)
 
 -- hack to prevent drones with mocha from crashing
 gm.pre_script_hook(gm.constants.actor_skin_skinnable_set_skin, function(self, other, result, args)
